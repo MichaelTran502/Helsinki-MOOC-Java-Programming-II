@@ -6,5 +6,29 @@ public class Program {
     public static void main(String[] args) {
         // Test your program here!
     }
-
+    
+    public static void printValues(HashMap<String, Book> hashmap) {
+        for (Book book : hashmap.values()) {
+            System.out.println(book);
+        }
+    }
+    
+    public static void printValueIfNameContains(HashMap<String, Book> hashmap, String text) {
+        String key = sanitizedString(text);
+        
+        for (Book book : hashmap.values()) {
+            if (book.getName().contains(key)) {
+                System.out.println(book);
+            }
+        }
+    }
+    
+    public static String sanitizedString(String string) {
+        if (string == null) {
+            return "";
+        }
+        
+        string = string.toLowerCase();
+        return string.trim();
+    }
 }
